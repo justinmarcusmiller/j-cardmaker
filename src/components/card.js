@@ -231,7 +231,7 @@ class Card extends Component {
 
                     </div>
                     {/* J-Card Spine */}
-                    <div className="jcard-side">
+                    <div className="jcard-side flipped-side">
                         <div className="spineDiv">
                             <h1>{this.state.title}</h1>
                             <h2>{this.state.subtitle}</h2>
@@ -257,14 +257,28 @@ class Card extends Component {
                             <h3>SOURCE: {this.state.sideBSource}</h3>
                         </div>
                     </div>
+                    <div className="jcard-back2">
+                        
+                        <ol>
+                            <p style={{ fontSize: this.state.songFontSize }}>{this.state.sideAName}</p>
+                            {this.state.Asongs.map((song, idx) => (
+                                <li style={{ fontSize: this.state.songFontSize }} key={idx.toString()}>{song.name}</li>
+                            ))}
+                        </ol>
+                        
+                        <ol>
+                            <p style={{ fontSize: this.state.songFontSize }}>{this.state.sideBName}</p>
+                            {this.state.Bsongs.map((song, idx) => (
+                                <li style={{ fontSize: this.state.songFontSize }} key={idx.toString()}>{song.name}</li>
+                            ))}
+                        </ol>
+                    </div>
 
                 </div>
 
                 {/* Form */}
                 <form className="jcard-form">
                     <h1>Options</h1>
-
-
 
                     <h3>Styling</h3>
                     <div id="style-form">
