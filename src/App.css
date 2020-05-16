@@ -447,4 +447,8 @@ footer {
   .jcard-back {
     width: .75in
   }
+
+  footer {
+    display: none;
+  }
 }
