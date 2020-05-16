@@ -161,7 +161,6 @@ li {
   background-color: #F7FAFC;
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   min-width: 825px;
-  border-radius: 15px;
   margin-bottom: 25px;
   border-top: 5px solid #718096;
 }
@@ -214,6 +213,20 @@ input[type=text]:focus {
   outline: none;
   border: 1px solid #84A2FA;
 }
+
+input[type=number]{
+  font-size: 16px;
+  line-height: 1.5;
+  background: #FFFFFF;
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+  background-size: 20px 20px;
+  border: 1px solid #C5CBD5;
+  box-shadow: inset 0 1px 4px 0 rgba(0,0,0,0.20);
+  border-radius: 8px;
+  width: 100px;
+  padding: .5em 1em .5em 1em;
+} 
 
 .delete-btn {
   background-color:#E53E3E;
@@ -336,6 +349,18 @@ button:focus {
   transform: rotateZ(90deg) translateY(1.5in);
 }
 
+.titles-form-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px;
+}
+
+.titles-form-inputs label{
+  margin-bottom: 10px;
+  margin-top: 25px;
+}
+
 #style-form {
   width:100%;
   display: flex;
@@ -355,7 +380,8 @@ button:focus {
 
 #titles-form {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-direction: row;
   margin-bottom: 50px;
 }
 
@@ -363,6 +389,10 @@ button:focus {
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
+}
+
+footer {
+  margin-bottom: 15px;
 }
 
 @media print {

@@ -22,7 +22,10 @@ class Card extends Component {
             cardNote1: '',
             cardNote2: '',
             sideASource: '',
-            sideBSource: ''
+            sideBSource: '',
+            songFontSize: 10.5,
+            titleFontSize: 11,
+            subtitleFontSize: 11
         };
     }
 
@@ -182,6 +185,24 @@ class Card extends Component {
         })
     }
 
+    changeTitleSize = e => {
+        this.setState({
+            titleFontSize: e.target.value + 'px'
+        })
+    }
+
+    changeSubTitleSize = e => {
+        this.setState({
+            subtitleFontSize: e.target.value + 'px'
+        })
+    }
+
+    changeSongSize = e => {
+        this.setState({
+            songFontSize: e.target.value + 'px'
+        })
+    }
+
     // Page
     render() {
         return (
@@ -191,19 +212,19 @@ class Card extends Component {
                     <div className={this.state.style + " jcard-front"}>
                         <div style={{ backgroundImage: "url(" + this.state.coverImg + ")" }} className={this.state.style + " cover"}></div>
                         <div className={this.state.style + " cover-text"}>
-                            <h1>{this.state.title}</h1>
-                            <h2>{this.state.subtitle}</h2>
-                            <p>{this.state.sideAName}</p>
+                            <h1 style={{ fontSize: this.state.titleFontSize }}>{this.state.title}</h1>
+                            <h2 style={{ fontSize: this.state.subtitleFontSize }}>{this.state.subtitle}</h2>
+                            <p style={{ fontSize: this.state.songFontSize }}>{this.state.sideAName}</p>
                             <ol>
                                 {this.state.Asongs.map((song, idx) => (
-                                    <li key={idx.toString()}>{song.name}</li>
+                                    <li style={{ fontSize: this.state.songFontSize }} key={idx.toString()}>{song.name}</li>
                                 ))}
                             </ol>
 
-                            <p>{this.state.sideBName}</p>
+                            <p style={{ fontSize: this.state.songFontSize }}>{this.state.sideBName}</p>
                             <ol>
                                 {this.state.Bsongs.map((song, idx) => (
-                                    <li key={idx.toString()}>{song.name}</li>
+                                    <li style={{ fontSize: this.state.songFontSize }} key={idx.toString()}>{song.name}</li>
                                 ))}
                             </ol>
                         </div>
@@ -243,8 +264,7 @@ class Card extends Component {
                 <form className="jcard-form">
                     <h1>Options</h1>
 
-                    <input type="file" id="cover-upload" name="cover-upload" attrs='accepts="image/*"'
-                        onChange={(e) => this.addImage(e)}></input>
+
 
                     <h3>Styling</h3>
                     <div id="style-form">
@@ -266,6 +286,9 @@ class Card extends Component {
                                 onChange={(e) => this.changeStyle(e)}></input>
                             <label htmlFor="img-only">Image Only</label>
                             <br />
+                            <label htmlFor="cover-upload">Cover Image:</label>
+                            <input type="file" id="cover-upload" name="cover-upload" attrs='accepts="image/*"'
+                                onChange={(e) => this.addImage(e)}></input>
                         </div>
 
                         <div id="font-form">
@@ -297,23 +320,38 @@ class Card extends Component {
 
                     <h3>Titles</h3>
                     <div id="titles-form">
-                        <label htmlFor="title-input">Title:</label>
-                        <input type="text" id="title-input" name="title-input" placeholder="Title"
-                            onChange={(e) => this.changeTitle(e)}></input>
-                        <br />
-                        <label htmlFor="subtitle-input">Sub-Title:</label>
-                        <input type="text" id="subtitle-input" name="subtitle-input" placeholder="Sub-Title"
-                            onChange={(e) => this.changeSubTitle(e)}></input>
-                        <br />
-                        <label htmlFor="sideATitle-input">Side A Title:</label>
-                        <input type="text" id="sideATitle-input" name="sideATitle-input" placeholder="Title"
-                            onChange={(e) => this.changeSideATitle(e)}></input>
-                        <br />
+                        <div className="titles-form-inputs">
+                            <label htmlFor="title-input">Title:</label>
+                            <input type="text" id="title-input" name="title-input" placeholder="Title"
+                                onChange={(e) => this.changeTitle(e)}></input>
 
-                        <label htmlFor="sideBTitle-input">Side B Title:</label>
-                        <input type="text" id="sideBTitle-input" name="sideBTitle-input" placeholder="Side B Title"
-                            onChange={(e) => this.changeSideBTitle(e)}></input>
-                        <br />
+                            <label htmlFor="subtitle-input">Sub-Title:</label>
+                            <input type="text" id="subtitle-input" name="subtitle-input" placeholder="Sub-Title"
+                                onChange={(e) => this.changeSubTitle(e)}></input>
+
+                            <label htmlFor="sideATitle-input">Side A Title:</label>
+                            <input type="text" id="sideATitle-input" name="sideATitle-input" placeholder="Title"
+                                onChange={(e) => this.changeSideATitle(e)}></input>
+
+                            <label htmlFor="sideBTitle-input">Side B Title:</label>
+                            <input type="text" id="sideBTitle-input" name="sideBTitle-input" placeholder="Side B Title"
+                                onChange={(e) => this.changeSideBTitle(e)}></input>
+                        </div>
+
+                        <div className="titles-form-inputs">
+                            <label htmlFor="title-input-fontsize">Title Size:</label>
+                            <input type="number" id="title-input-fontsize" name="title-input-fontsize" placeholder="11"
+                                onChange={(e) => this.changeTitleSize(e)}></input>
+
+                            <label htmlFor="sub-title-input-fontsize">Sub-Title Size:</label>
+                            <input type="number" id="sub-title-input-fontsize" name="sub-title-input-fontsize" placeholder="11"
+                                onChange={(e) => this.changeSubTitleSize(e)}></input>
+
+                            <label htmlFor="side-title-input-fontsize">Side-Title Size:</label>
+                            <input type="number" id="side-title-input-fontsize" name="side-title-input-fontsize" placeholder="10.5"
+                                onChange={(e) => this.changeSongSize(e)}></input>
+                        </div>
+
                     </div>
 
                     <h3>Other Information</h3>
@@ -383,7 +421,12 @@ class Card extends Component {
                     <button type="button" onClick={this.handleAddBSong}>
                         Add Song
                         </button>
+
                 </form>
+                <footer>
+                    <p>Copyright 2020 - Justin Miller</p>
+                </footer>
+
             </div>
 
         )
