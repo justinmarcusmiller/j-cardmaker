@@ -1,38 +1,369 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #292B2E;
+  background-color: #EDF2F7;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.content-wrapper {
+  display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.jcard {
+  display: flex;
+  border: black 1px solid;
+  margin-top: 25px;
+  width: 4in;
+  height: 4in;
+  flex-direction: row-reverse;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  z-index: 2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.jcard-front {
+  width: 2.5in;
+  height: 4in;
+  text-align: center;
+  font-size: 12px;
+  padding-top: 5px;
+}
+
+.jcard-front p {
+  color: #E53E3E;
+  font-weight: bold;
+  font-size: 10.5px;
+  text-indent: 10px hanging each-line;
+}
+
+.jcard-front h1, .jcard-front h2 {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.jcard-side h1 , .jcard-side h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+ol {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+li {
+  text-align: left;
+  margin: 3px 5px;
+  font-size: 10.5px;
+  font-weight: bold;
+  text-indent: 10px hanging each-line;
+}
+
+.jcard-side {
+  border-top: black 1px solid;
+  border-bottom: black 1px solid;
+  height: .5in;
+  width: 4in;
+  position: absolute;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  transform-origin: bottom;
+  transform: translate(-.5in, 1.5in) rotate(-90deg);
+}
+
+.spineDiv {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+}
+
+.flex-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 80px;
+  text-align: left;
+  width: 170px;
+}
+
+.jcard-back {
+  position: absolute;
+  display: flex;
+  width: 4in;
+  height: 1in;
+  transform-origin: bottom;
+  transform: translateX(-1in) translateY(1in) rotate(-90deg);
+}
+
+.br-dash {
+  border-right: 1px dashed black;
+}
+
+.jcard-back p {
+  text-align: center;
+  font-size: 11px;
+  margin: 0 5px;
+}
+
+.jcard-back p:after {
+  content: " •";
+}
+
+.jcard-back h2 {
+  width: 4in
+}
+
+.jcard-back div {
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.jcard-back div h3:first-of-type {
+  font-weight: 600;
+}
+
+.song {
+  display: flex;
+  align-items: baseline;
+}
+
+.song p {
+  margin-right: 15px;
+}
+
+.underlines li {
+  border-bottom: 1px solid black;
+}
+
+.underlines ol{
+  border-top: 2px solid black
+}
+
+.jcard-form {
+  display: flex;
+  margin-top: -50px;
+  z-index: 1;
+  padding: 70px 50px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F7FAFC;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  min-width: 825px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  border-top: 5px solid #718096;
+}
+
+.jcard-form h3, .jcard-form h4 {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.jcard-form h1 {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+label {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.jcard-form p {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+input[type=file] {
+  margin-bottom: 25px;
+}
+
+input[type=text]{
+  font-size: 16px;
+  line-height: 1.5;
+  background: #FFFFFF;
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+  background-size: 20px 20px;
+  border: 1px solid #C5CBD5;
+  box-shadow: inset 0 1px 4px 0 rgba(0,0,0,0.20);
+  border-radius: 8px;
+  width: 300px;
+  padding: .5em 1em .5em 1em;
+} 
+  
+input[type=text]::placeholder{
+  color: #838D99;
+}
+  
+input[type=text]:focus {
+  outline: none;
+  border: 1px solid #84A2FA;
+}
+
+
+.delete-btn {
+  background-color:#E53E3E;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  border-radius: 25px;
+  border: 0;
+  height: 32px;
+  width: 32px;
+  color: #FFF5F5;
+  line-height: 1;
+  margin-left: 5px;
+  padding: 5px;
+}
+
+.delete-btn:hover {
+  background-color: #C53030;
+}
+
+.song {
+  margin-bottom: 15px;
+}
+
+button {
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.5;
+  padding: .5em 2em;
+  border: none;
+  background-color: #4A90E2;
+  border-radius: 20px;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:focus {
+  outline: none;
+}
+
+.text-vertical {
+
+}
+
+.ta-r {
+  text-align: right;
+}
+
+.text-horizontal {
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 4in;
+  height: 2.5in;
+  transform-origin: bottom;
+  transform: rotateZ(-90deg) translateY(2in) translateX(.5in);
+  text-align: center;
+  margin-left: 4px;
+  padding: 0 4px;
+}
+
+.text-horizontal p {
+  text-align: right;
+}
+
+.text-horizontal p:after {
+  content: " :";
+}
+
+#style-form {
+  width:100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+#front-style input, #font-form input {
+  margin: 5px 10px;
+}
+
+#color-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#titles-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+#other-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+@media print {
+
+  .jcard-form {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  .jcard{
+    box-shadow: none;
+  }
+
+  body {
+    background: none;
+  }
+
+}
+
+@media screen and (max-width: 900px){
+
+  .jcard-form {
+    min-width: unset;
+    width: 90vw;
+    border-radius: 0;
+  }
+
+  #style-form {
+    flex-direction: column;
+    justify-content: space-evenly;
+    width:unset;
+    align-items: initial;
+    min-height: 500px;
+  }
+
+  #color-form {
+    align-items: center;
+  }
+
+  #color-form label {
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .song input {
+    width: 250px;
+  }
+
+  .jcard {
+    width: 3.75in;
+  }
+
+  .jcard-back {
+    width: .75in
   }
 }
