@@ -408,6 +408,10 @@ footer {
   body {
     background: none;
   }
+
+  footer {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 900px){
@@ -448,7 +452,5 @@ footer {
     width: .75in
   }
 
-  footer {
-    display: none;
-  }
+  
 }
