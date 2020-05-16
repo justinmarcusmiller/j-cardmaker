@@ -439,7 +439,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 460px){
   .song input {
     width: 250px;
   }
@@ -449,8 +449,13 @@ footer {
   }
 
   .jcard-back {
-    width: .75in
+    height: .75in;
+    transform: rotateZ(-90deg) translateY(-1.36in) ;
   }
 
+
+  #titles-form {
+    flex-direction: column;
+  }
   
 }
