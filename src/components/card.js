@@ -32,17 +32,13 @@ class Card extends Component {
         this.setState({
             fontFamily: e.target.value
         })
-        if(e.target.value === "'Gloria Hallelujah', cursive") {
+        /* if (e.target.value === "'Gloria Hallelujah', cursive") {
             console.log('test')
             this.setState({
-                style: this.state.style + ' underlines'
+                style: this.state.style + " underlines"
             })
-        }
-        else {
-            this.setState({
-                style: this.state.style - ' underlines'
-            })
-        }
+        } */
+
     }
 
     changeTitle = e => {
@@ -190,24 +186,27 @@ class Card extends Component {
     render() {
         return (
             <div className="content-wrapper">
-                <div style={{ fontFamily: this.state.fontFamily, backgroundColor: this.state.bgColor, color: this.state.fontColor }} className={'jcard'}>
+                <div style={{ fontFamily: this.state.fontFamily, backgroundColor: this.state.bgColor, color: this.state.fontColor }} className={this.state.style + " jcard"}>
                     {/* Front of J-Card */}
-                    <div style={{ backgroundImage: "url(" + this.state.coverImg + ")" }} className={this.state.style + " jcard-front"}>
-                        <h1>{this.state.title}</h1>
-                        <h2>{this.state.subtitle}</h2>
-                        <p>{this.state.sideAName}</p>
-                        <ol>
-                            {this.state.Asongs.map((song, idx) => (
-                                <li key={idx.toString()}>{song.name}</li>
-                            ))}
-                        </ol>
+                    <div className={this.state.style + " jcard-front"}>
+                        <div style={{ backgroundImage: "url(" + this.state.coverImg + ")" }} className={this.state.style + " cover"}></div>
+                        <div className={this.state.style + " cover-text"}>
+                            <h1>{this.state.title}</h1>
+                            <h2>{this.state.subtitle}</h2>
+                            <p>{this.state.sideAName}</p>
+                            <ol>
+                                {this.state.Asongs.map((song, idx) => (
+                                    <li key={idx.toString()}>{song.name}</li>
+                                ))}
+                            </ol>
 
-                        <p>{this.state.sideBName}</p>
-                        <ol>
-                            {this.state.Bsongs.map((song, idx) => (
-                                <li key={idx.toString()}>{song.name}</li>
-                            ))}
-                        </ol>
+                            <p>{this.state.sideBName}</p>
+                            <ol>
+                                {this.state.Bsongs.map((song, idx) => (
+                                    <li key={idx.toString()}>{song.name}</li>
+                                ))}
+                            </ol>
+                        </div>
 
                     </div>
                     {/* J-Card Spine */}
@@ -295,7 +294,7 @@ class Card extends Component {
                                 onChange={(e) => this.changeCardFontColor(e)}></input>
                         </div>
                     </div>
-                            
+
                     <h3>Titles</h3>
                     <div id="titles-form">
                         <label htmlFor="title-input">Title:</label>

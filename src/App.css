@@ -20,10 +20,12 @@ body {
   margin-top: 25px;
   width: 4in;
   height: 4in;
+  align-items: center;
   flex-direction: row-reverse;
   font-family: 'Courier New', Courier, monospace;
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   z-index: 2;
+  transition: transform ease-in-out .3s;
 }
 
 .jcard-front {
@@ -75,8 +77,7 @@ li {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  transform-origin: bottom;
-  transform: translate(-.5in, 1.5in) rotate(-90deg);
+  transform: rotateZ(90deg) translateY(.75in);
 }
 
 .spineDiv {
@@ -100,8 +101,7 @@ li {
   display: flex;
   width: 4in;
   height: 1in;
-  transform-origin: bottom;
-  transform: translateX(-1in) translateY(1in) rotate(-90deg);
+  transform: rotateZ(-90deg) translateY(-1.5in)
 }
 
 .br-dash {
@@ -215,7 +215,6 @@ input[type=text]:focus {
   border: 1px solid #84A2FA;
 }
 
-
 .delete-btn {
   background-color:#E53E3E;
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
@@ -255,33 +254,86 @@ button:focus {
   outline: none;
 }
 
-.text-vertical {
-
+.text-vertical.jcard {
+  transform: rotateZ(0deg);
 }
 
 .ta-r {
   text-align: right;
 }
 
-.text-horizontal {
+.jcard-front.text-horizontal  {
   position: absolute;
   display: flex;
   flex-flow: column nowrap;
   width: 4in;
   height: 2.5in;
-  transform-origin: bottom;
-  transform: rotateZ(-90deg) translateY(2in) translateX(.5in);
+  transform: rotateZ(-90deg) translateY(.75in);
   text-align: center;
   margin-left: 4px;
   padding: 0 4px;
 }
 
-.text-horizontal p {
-  text-align: right;
+.cover {
+  width: inherit;
+  display: none;
+  height: 2.5in;
+  position: absolute;
+  background-color: lightgray;
+  transform: translateY(-5px) translateX(-1.25in);
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  
 }
 
-.text-horizontal p:after {
-  content: " :";
+.img-with-text.cover {
+  display: initial;
+  background-position: center;
+  background-size: contain;
+}
+
+.img-with-text.cover-text {
+  transform: translateY(2.5in);
+}
+
+.img-with-text ol {
+  display: inline-flex;
+  justify-content: center;
+  flex-flow: wrap;
+  list-style: none;
+}
+
+.img-with-text li {
+  font-size: 8.5px;
+  margin: 3px 1px;
+}
+
+.img-with-text li:not(:last-child)::after {
+  content: " •";
+}
+
+.jcard.text-horizontal  {
+  transform: rotateZ(90deg);
+  box-shadow: 4px 0px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.img-only.cover {
+  display: initial;
+  height: inherit;
+  background-position: center;
+  background-size: cover;
+}
+
+.img-only.cover-text {
+  display: none;
+}
+
+.flipped-side {
+  transform: rotateZ(-90deg) translateY(-.75in);
+}
+
+.flipped-back {
+  transform: rotateZ(90deg) translateY(1.5in);
 }
 
 #style-form {
@@ -326,7 +378,6 @@ button:focus {
   body {
     background: none;
   }
-
 }
 
 @media screen and (max-width: 900px){
