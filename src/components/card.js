@@ -287,15 +287,15 @@ class Card extends Component {
                                 <h4>Cover Style</h4>
                                 <input type="radio" id="text-vertical" name="style" value="text-vertical"
                                     onChange={(e) => this.changeStyle(e)}></input>
-                                <label htmlFor="text-vertical">Vertical Track-List</label>
+                                <label htmlFor="text-vertical">Vertical Song-List</label>
                                 <br />
                                 <input type="radio" id="text-horizontal" name="style" value="text-horizontal"
                                     onChange={(e) => this.changeStyle(e)}></input>
-                                <label htmlFor="text-horizontal">Horizontal Track-List</label>
+                                <label htmlFor="text-horizontal">Horizontal Song-List</label>
                                 <br />
                                 <input type="radio" id="img-with-text" name="style" value="img-with-text"
                                     onChange={(e) => this.changeStyle(e)}></input>
-                                <label htmlFor="img-with-text">Image With Track-List</label>
+                                <label htmlFor="img-with-text">Image With Song-List</label>
                                 <br />
                                 <input type="radio" id="img-only" name="style" value="img-only"
                                     onChange={(e) => this.changeStyle(e)}></input>
