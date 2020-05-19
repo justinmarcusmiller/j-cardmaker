@@ -364,9 +364,7 @@ class Card extends Component {
                                 <input type="number" id="sub-title-input-fontsize" name="sub-title-input-fontsize" placeholder="11"
                                     onChange={(e) => this.changeSubTitleSize(e)}></input>
 
-                                <label htmlFor="side-title-input-fontsize">Side-Title Size:</label>
-                                <input type="number" id="side-title-input-fontsize" name="side-title-input-fontsize" placeholder="10.5"
-                                    onChange={(e) => this.changeSongSize(e)}></input>
+
                             </div>
                         </div>
                     </div>
@@ -402,6 +400,14 @@ class Card extends Component {
 
                     <div className="settings-card">
                         <h3>Song List</h3>
+                        
+                        <div className="font-size-input">
+                            <label htmlFor="side-title-input-fontsize">Song Name Size:</label>
+                            <input type="number" id="side-title-input-fontsize" name="side-title-input-fontsize" placeholder="10.5"
+                                onChange={(e) => this.changeSongSize(e)}></input>
+                        </div>
+                        
+
                         <h4>Side A</h4>
                         <div className="song-list">
                             {this.state.Asongs.map((song, idx) => (
@@ -418,10 +424,10 @@ class Card extends Component {
                                 </div>
                             ))}
                         </div>
-                            <button className="add-btn" type="button" onClick={this.handleAddASong}>
-                                Add Song
+                        <button className="add-btn" type="button" onClick={this.handleAddASong}>
+                            Add Song
                             </button>
-                        
+
                         <h4>Side B</h4>
                         <div className="song-list">
 
@@ -438,11 +444,11 @@ class Card extends Component {
 
                                 </div>
                             ))}
-                            </div>
-                            <button className="add-btn" type="button" onClick={this.handleAddBSong}>
-                                Add Song
+                        </div>
+                        <button className="add-btn" type="button" onClick={this.handleAddBSong}>
+                            Add Song
                         </button>
-                        
+
                     </div>
                 </form>
                 <footer>
