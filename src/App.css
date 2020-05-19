@@ -413,8 +413,8 @@ button:focus {
 
 .song-list {
   display: flex;
-  justify-content: center;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: center;
 }
 
 .add-btn {
