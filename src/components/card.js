@@ -10,7 +10,7 @@ class Card extends Component {
             subtitle: 'Sub-Title',
             Asongs: [{ name: "Number 1" }],
             Bsongs: [{ name: "Number 1" }],
-            sideAName: 'Side B',
+            sideAName: 'Side A',
             sideBName: 'Side B',
             nrType: 'Dolby B',
             tapeType: 1,
