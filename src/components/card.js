@@ -324,7 +324,7 @@ class Card extends Component {
                             <div id="color-form">
                                 <h4>Colors</h4>
                                 <label htmlFor="card-color-input" name="card-color-input">Card Color:</label>
-                                <input type="color" id="card-color-input" name="card-color-input"
+                                <input type="color" value="#ffffff" id="card-color-input" name="card-color-input"
                                     onChange={(e) => this.changeCardColor(e)}></input>
 
                                 <label htmlFor="font-color-input" name="font-color-input">Font Color:</label>
