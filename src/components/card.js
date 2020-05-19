@@ -25,7 +25,9 @@ class Card extends Component {
             sideBSource: '',
             songFontSize: 10.5,
             titleFontSize: 11,
-            subtitleFontSize: 11
+            subtitleFontSize: 11,
+            backStyle: 'back1',
+            spineStyle: 'spineNormal'
         };
     }
 
@@ -231,7 +233,7 @@ class Card extends Component {
 
                     </div>
                     {/* J-Card Spine */}
-                    <div className="jcard-side flipped-side">
+                    <div className={this.state.spineStyle + " jcard-side"}>
                         <div className="spineDiv">
                             <h1>{this.state.title}</h1>
                             <h2>{this.state.subtitle}</h2>
@@ -241,11 +243,10 @@ class Card extends Component {
                             <h2>{this.state.cardNote1}</h2>
                             <h2>{this.state.cardNote2}</h2>
                         </div>
-                        {/*  */}
 
                     </div>
                     {/* Back of J-card  */}
-                    <div className="jcard-back">
+                    <div className={this.state.backStyle + " jcard-back"}>
                         <div className="br-dash">
                             <h3>{this.state.sideAName}</h3>
                             <h3>NR: {this.state.nrType}</h3>
@@ -257,15 +258,15 @@ class Card extends Component {
                             <h3>SOURCE: {this.state.sideBSource}</h3>
                         </div>
                     </div>
-                    <div className="jcard-back2">
-                        
+                    <div className={this.state.backStyle + " jcard-back2"}>
+
                         <ol>
                             <p style={{ fontSize: this.state.songFontSize }}>{this.state.sideAName}</p>
                             {this.state.Asongs.map((song, idx) => (
                                 <li style={{ fontSize: this.state.songFontSize }} key={idx.toString()}>{song.name}</li>
                             ))}
                         </ol>
-                        
+
                         <ol>
                             <p style={{ fontSize: this.state.songFontSize }}>{this.state.sideBName}</p>
                             {this.state.Bsongs.map((song, idx) => (
@@ -278,164 +279,171 @@ class Card extends Component {
 
                 {/* Form */}
                 <form className="jcard-form">
-                    <h1>Options</h1>
 
-                    <h3>Styling</h3>
-                    <div id="style-form">
-                        <div id="front-style">
-                            <h4>Cover Style</h4>
-                            <input type="radio" id="text-vertical" name="style" value="text-vertical"
-                                onChange={(e) => this.changeStyle(e)}></input>
-                            <label htmlFor="text-vertical">Vertical Track-List</label>
-                            <br />
-                            <input type="radio" id="text-horizontal" name="style" value="text-horizontal"
-                                onChange={(e) => this.changeStyle(e)}></input>
-                            <label htmlFor="text-horizontal">Horizontal Track-List</label>
-                            <br />
-                            <input type="radio" id="img-with-text" name="style" value="img-with-text"
-                                onChange={(e) => this.changeStyle(e)}></input>
-                            <label htmlFor="img-with-text">Image With Track-List</label>
-                            <br />
-                            <input type="radio" id="img-only" name="style" value="img-only"
-                                onChange={(e) => this.changeStyle(e)}></input>
-                            <label htmlFor="img-only">Image Only</label>
-                            <br />
-                            <label htmlFor="cover-upload">Cover Image:</label>
-                            <input type="file" id="cover-upload" name="cover-upload" attrs='accepts="image/*"'
-                                onChange={(e) => this.addImage(e)}></input>
-                        </div>
+                    <div className="settings-card">
+                        <h3>Styling</h3>
+                        <div id="style-form">
+                            <div id="front-style">
+                                <h4>Cover Style</h4>
+                                <input type="radio" id="text-vertical" name="style" value="text-vertical"
+                                    onChange={(e) => this.changeStyle(e)}></input>
+                                <label htmlFor="text-vertical">Vertical Track-List</label>
+                                <br />
+                                <input type="radio" id="text-horizontal" name="style" value="text-horizontal"
+                                    onChange={(e) => this.changeStyle(e)}></input>
+                                <label htmlFor="text-horizontal">Horizontal Track-List</label>
+                                <br />
+                                <input type="radio" id="img-with-text" name="style" value="img-with-text"
+                                    onChange={(e) => this.changeStyle(e)}></input>
+                                <label htmlFor="img-with-text">Image With Track-List</label>
+                                <br />
+                                <input type="radio" id="img-only" name="style" value="img-only"
+                                    onChange={(e) => this.changeStyle(e)}></input>
+                                <label htmlFor="img-only">Image Only</label>
+                                <br />
+                                <label htmlFor="cover-upload">Cover Image:</label>
+                                <input type="file" id="cover-upload" name="cover-upload" attrs='accepts="image/*"'
+                                    onChange={(e) => this.addImage(e)}></input>
+                            </div>
 
-                        <div id="font-form">
-                            <h4>Font-Style</h4>
-                            <input type="radio" id="courier" name="font-family" value="'Courier New', Courier, monospace"
-                                onChange={(e) => this.changeFontFamily(e)}></input>
-                            <label htmlFor="courier">Courier</label>
-                            <br />
-                            <input type="radio" id="Sans-Serif" name="font-family" value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
-                                onChange={(e) => this.changeFontFamily(e)}></input>
-                            <label htmlFor="Sans-Serif">Sans-Serif</label>
-                            <br />
-                            <input type="radio" id="handwritten" name="font-family" value="'Gloria Hallelujah', cursive"
-                                onChange={(e) => this.changeFontFamily(e)}></input>
-                            <label htmlFor="handwritten">Hand-Written</label>
-                        </div>
+                            <div id="font-form">
+                                <h4>Font-Style</h4>
+                                <input type="radio" id="courier" name="font-family" value="'Courier New', Courier, monospace"
+                                    onChange={(e) => this.changeFontFamily(e)}></input>
+                                <label htmlFor="courier">Courier</label>
+                                <br />
+                                <input type="radio" id="Sans-Serif" name="font-family" value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                                    onChange={(e) => this.changeFontFamily(e)}></input>
+                                <label htmlFor="Sans-Serif">Sans-Serif</label>
+                                <br />
+                                <input type="radio" id="handwritten" name="font-family" value="'Gloria Hallelujah', cursive"
+                                    onChange={(e) => this.changeFontFamily(e)}></input>
+                                <label htmlFor="handwritten">Hand-Written</label>
+                            </div>
 
-                        <div id="color-form">
-                            <h3>Colors</h3>
-                            <label htmlFor="card-color-input" name="card-color-input">Card Color:</label>
-                            <input type="color" id="card-color-input" name="card-color-input"
-                                onChange={(e) => this.changeCardColor(e)}></input>
+                            <div id="color-form">
+                                <h4>Colors</h4>
+                                <label htmlFor="card-color-input" name="card-color-input">Card Color:</label>
+                                <input type="color" id="card-color-input" name="card-color-input"
+                                    onChange={(e) => this.changeCardColor(e)}></input>
 
-                            <label htmlFor="font-color-input" name="font-color-input">Font Color:</label>
-                            <input type="color" id="font-color-input" name="font-color-input"
-                                onChange={(e) => this.changeCardFontColor(e)}></input>
+                                <label htmlFor="font-color-input" name="font-color-input">Font Color:</label>
+                                <input type="color" id="font-color-input" name="font-color-input"
+                                    onChange={(e) => this.changeCardFontColor(e)}></input>
+                            </div>
                         </div>
                     </div>
 
-                    <h3>Titles</h3>
-                    <div id="titles-form">
-                        <div className="titles-form-inputs">
-                            <label htmlFor="title-input">Title:</label>
-                            <input type="text" id="title-input" name="title-input" placeholder="Title"
-                                onChange={(e) => this.changeTitle(e)}></input>
+                    <div className="settings-card">
+                        <h3>Titles</h3>
+                        <div id="titles-form">
+                            <div className="titles-form-inputs">
+                                <label htmlFor="title-input">Title:</label>
+                                <input type="text" id="title-input" name="title-input" placeholder="Title"
+                                    onChange={(e) => this.changeTitle(e)}></input>
 
-                            <label htmlFor="subtitle-input">Sub-Title:</label>
-                            <input type="text" id="subtitle-input" name="subtitle-input" placeholder="Sub-Title"
-                                onChange={(e) => this.changeSubTitle(e)}></input>
+                                <label htmlFor="subtitle-input">Sub-Title:</label>
+                                <input type="text" id="subtitle-input" name="subtitle-input" placeholder="Sub-Title"
+                                    onChange={(e) => this.changeSubTitle(e)}></input>
 
-                            <label htmlFor="sideATitle-input">Side A Title:</label>
-                            <input type="text" id="sideATitle-input" name="sideATitle-input" placeholder="Title"
-                                onChange={(e) => this.changeSideATitle(e)}></input>
+                                <label htmlFor="sideATitle-input">Side A Title:</label>
+                                <input type="text" id="sideATitle-input" name="sideATitle-input" placeholder="Title"
+                                    onChange={(e) => this.changeSideATitle(e)}></input>
 
-                            <label htmlFor="sideBTitle-input">Side B Title:</label>
-                            <input type="text" id="sideBTitle-input" name="sideBTitle-input" placeholder="Side B Title"
-                                onChange={(e) => this.changeSideBTitle(e)}></input>
+                                <label htmlFor="sideBTitle-input">Side B Title:</label>
+                                <input type="text" id="sideBTitle-input" name="sideBTitle-input" placeholder="Side B Title"
+                                    onChange={(e) => this.changeSideBTitle(e)}></input>
+                            </div>
+
+                            <div className="titles-form-inputs">
+                                <label htmlFor="title-input-fontsize">Title Size:</label>
+                                <input type="number" id="title-input-fontsize" name="title-input-fontsize" placeholder="11"
+                                    onChange={(e) => this.changeTitleSize(e)}></input>
+
+                                <label htmlFor="sub-title-input-fontsize">Sub-Title Size:</label>
+                                <input type="number" id="sub-title-input-fontsize" name="sub-title-input-fontsize" placeholder="11"
+                                    onChange={(e) => this.changeSubTitleSize(e)}></input>
+
+                                <label htmlFor="side-title-input-fontsize">Side-Title Size:</label>
+                                <input type="number" id="side-title-input-fontsize" name="side-title-input-fontsize" placeholder="10.5"
+                                    onChange={(e) => this.changeSongSize(e)}></input>
+                            </div>
                         </div>
-
-                        <div className="titles-form-inputs">
-                            <label htmlFor="title-input-fontsize">Title Size:</label>
-                            <input type="number" id="title-input-fontsize" name="title-input-fontsize" placeholder="11"
-                                onChange={(e) => this.changeTitleSize(e)}></input>
-
-                            <label htmlFor="sub-title-input-fontsize">Sub-Title Size:</label>
-                            <input type="number" id="sub-title-input-fontsize" name="sub-title-input-fontsize" placeholder="11"
-                                onChange={(e) => this.changeSubTitleSize(e)}></input>
-
-                            <label htmlFor="side-title-input-fontsize">Side-Title Size:</label>
-                            <input type="number" id="side-title-input-fontsize" name="side-title-input-fontsize" placeholder="10.5"
-                                onChange={(e) => this.changeSongSize(e)}></input>
-                        </div>
-
                     </div>
 
-                    <h3>Other Information</h3>
-                    <div id="other-form">
-                        <br />
-                        <label htmlFor="note1-input">Note 1:</label>
-                        <input type="text" id="note1-input" name="note1-input" placeholder="Note 1:"
-                            onChange={(e) => this.changeNote1(e)}></input>
+                    <div className="settings-card">
+                        <h3>Other Information</h3>
+                        <div id="other-form">
+                            <br />
+                            <label htmlFor="note1-input">Note 1:</label>
+                            <input type="text" id="note1-input" name="note1-input" placeholder="Note 1:"
+                                onChange={(e) => this.changeNote1(e)}></input>
 
-                        <br />
-                        <label htmlFor="note2-input">Note 2:</label>
-                        <input type="text" id="note2-input" name="note2-input" placeholder="Note 2:"
-                            onChange={(e) => this.changeNote2(e)}></input>
+                            <br />
+                            <label htmlFor="note2-input">Note 2:</label>
+                            <input type="text" id="note2-input" name="note2-input" placeholder="Note 2:"
+                                onChange={(e) => this.changeNote2(e)}></input>
 
-                        <br />
-                        <label htmlFor="nrType-input">Side A Source:</label>
-                        <input type="text" id="sideASource-input" name="sideASource-input" placeholder="Side A Source:"
-                            onChange={(e) => this.changeSideASource(e)}></input>
-                        <br />
-                        <label htmlFor="nrType-input">Side B Source:</label>
-                        <input type="text" id="sideBSource-input" name="sideBSource-input" placeholder="Side B Source:"
-                            onChange={(e) => this.changeSideBSource(e)}></input>
+                            <br />
+                            <label htmlFor="nrType-input">Side A Source:</label>
+                            <input type="text" id="sideASource-input" name="sideASource-input" placeholder="Side A Source:"
+                                onChange={(e) => this.changeSideASource(e)}></input>
+                            <br />
+                            <label htmlFor="nrType-input">Side B Source:</label>
+                            <input type="text" id="sideBSource-input" name="sideBSource-input" placeholder="Side B Source:"
+                                onChange={(e) => this.changeSideBSource(e)}></input>
 
-                        <br />
-                        <label htmlFor="nrType-input">Noise Reduction:</label>
-                        <input type="text" id="nrType-input" name="nrType-input" placeholder="Noise Reduction:"
-                            onChange={(e) => this.changeNRType(e)}></input>
+                            <br />
+                            <label htmlFor="nrType-input">Noise Reduction:</label>
+                            <input type="text" id="nrType-input" name="nrType-input" placeholder="Noise Reduction:"
+                                onChange={(e) => this.changeNRType(e)}></input>
+                        </div>
                     </div>
 
-                    <p>Song List</p>
-                    <p>Side A</p>
+                    <div className="settings-card">
+                        <h3>Song List</h3>
+                        <h4>Side A</h4>
+                        <div className="song-list">
+                            {this.state.Asongs.map((song, idx) => (
+                                <div key={idx.toString()} className="song">
+                                    <p>{idx + 1 + '.'}</p>
+                                    <input type="text" placeholder={`Song #${idx + 1}`}
+                                        value={song.name}
+                                        onChange={this.handleASongChange(idx)}
+                                    />
+                                    <button
+                                        type="button" className="delete-btn" onClick={this.handleRemoveASong(idx)}>X
+                                    </button>
 
-                    {this.state.Asongs.map((song, idx) => (
-                        <div key={idx.toString()} className="song">
-                            <p>{idx + 1 + '.'}</p>
-                            <input type="text" placeholder={`Song #${idx + 1}`}
-                                value={song.name}
-                                onChange={this.handleASongChange(idx)}
-                            />
-                            <button
-                                type="button" className="delete-btn" onClick={this.handleRemoveASong(idx)}>X
+                                </div>
+                            ))}
+                        </div>
+                            <button className="add-btn" type="button" onClick={this.handleAddASong}>
+                                Add Song
+                            </button>
+                        
+                        <h4>Side B</h4>
+                        <div className="song-list">
+
+                            {this.state.Bsongs.map((song, idx) => (
+                                <div key={idx.toString()} className="song">
+                                    <p>{idx + 1 + '.'}</p>
+                                    <input type="text" placeholder={`Song #${idx + 1}`}
+                                        value={song.name}
+                                        onChange={this.handleBSongChange(idx)}
+                                    />
+                                    <button
+                                        type="button" className="delete-btn" onClick={this.handleRemoveBSong(idx)}>X
                                 </button>
 
-                        </div>
-                    ))}
-
-                    <button type="button" onClick={this.handleAddASong}>
-                        Add Song
+                                </div>
+                            ))}
+                            </div>
+                            <button className="add-btn" type="button" onClick={this.handleAddBSong}>
+                                Add Song
                         </button>
-
-                    <p>Side B</p>
-
-                    {this.state.Bsongs.map((song, idx) => (
-                        <div key={idx.toString()} className="song">
-                            <p>{idx + 1 + '.'}</p>
-                            <input type="text" placeholder={`Song #${idx + 1}`}
-                                value={song.name}
-                                onChange={this.handleBSongChange(idx)}
-                            />
-                            <button
-                                type="button" className="delete-btn" onClick={this.handleRemoveBSong(idx)}>X
-                                </button>
-
-                        </div>
-                    ))}
-
-                    <button type="button" onClick={this.handleAddBSong}>
-                        Add Song
-                        </button>
-
+                        
+                    </div>
                 </form>
                 <footer>
                     <p>Copyright 2020 - Justin Miller</p>

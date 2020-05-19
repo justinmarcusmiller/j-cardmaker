@@ -5,6 +5,7 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #292B2E;
+  background-attachment: fixed;
   background-color: #edf2f7;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23a0aec0' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
@@ -133,6 +134,14 @@ li {
   border-right: 1px dashed black;
 }
 
+.back1.jcard-back, .back1.jcard-back2 {
+  display: flex;
+}
+
+.back1.jcard-back2, .back2.jcard-back {
+  display: none
+}
+
 .jcard-back p {
   text-align: center;
   font-size: 11px;
@@ -177,17 +186,7 @@ li {
 }
 
 .jcard-form {
-  display: flex;
-  margin-top: -50px;
-  z-index: 1;
-  padding: 70px 50px;
-  flex-direction: column;
-  align-items: center;
-  background-color: #F7FAFC;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
-  min-width: 825px;
-  margin-bottom: 25px;
-  border-top: 5px solid #718096;
+  margin-top: 25px;
 }
 
 .jcard-form h3, .jcard-form h4 {
@@ -391,7 +390,36 @@ button:focus {
   display: flex;
   align-items: baseline;
   justify-content: space-around;
+  
+}
+
+.settings-card {
   margin-bottom: 50px;
+  background-color: #F7FAFC;
+  padding: 15px;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  border-top: 5px solid royalblue;
+  border-radius: 5px;
+  width: 700px;
+}
+
+.settings-card h3 {
+  color: #718096;
+  font-weight: 300;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  font-size: x-large;
+}
+
+.song-list {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.add-btn {
+  display: block;
+  margin: 15px auto;
 }
 
 #front-style input, #font-form input {
@@ -414,6 +442,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
+  align-items: center;
 }
 
 footer {
