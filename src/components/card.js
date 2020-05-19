@@ -10,9 +10,9 @@ class Card extends Component {
             subtitle: 'Sub-Title',
             Asongs: [{ name: "Number 1" }],
             Bsongs: [{ name: "Number 1" }],
-            sideAName: 'side a',
-            sideBName: 'side b',
-            nrType: 'B',
+            sideAName: 'Side B',
+            sideBName: 'Side B',
+            nrType: 'Dolby B',
             tapeType: 1,
             bgColor: '#FFF',
             fontColor: '#000',
@@ -347,11 +347,11 @@ class Card extends Component {
                                     onChange={(e) => this.changeSubTitle(e)}></input>
 
                                 <label htmlFor="sideATitle-input">Side A Title:</label>
-                                <input type="text" id="sideATitle-input" name="sideATitle-input" placeholder="Title"
+                                <input type="text" id="sideATitle-input" name="sideATitle-input" placeholder="Side A"
                                     onChange={(e) => this.changeSideATitle(e)}></input>
 
                                 <label htmlFor="sideBTitle-input">Side B Title:</label>
-                                <input type="text" id="sideBTitle-input" name="sideBTitle-input" placeholder="Side B Title"
+                                <input type="text" id="sideBTitle-input" name="sideBTitle-input" placeholder="Side B"
                                     onChange={(e) => this.changeSideBTitle(e)}></input>
                             </div>
 
