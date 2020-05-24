@@ -32,42 +32,8 @@ class Card extends Component {
     }
 
     // Functions
-
-    changeFontFamily = e => {
-        this.setState({
-            fontFamily: e.target.value
-        })
-        /* if (e.target.value === "'Gloria Hallelujah', cursive") {
-            console.log('test')
-            this.setState({
-                style: this.state.style + " underlines"
-            })
-        } */
-
-    }
-
-    changeTitle = e => {
-        this.setState({
-            title: e.target.value
-        })
-    }
-
-    changeSubTitle = e => {
-        this.setState({
-            subtitle: e.target.value
-        })
-    }
-
-    changeSideAName = e => {
-        this.setState({
-            sideAName: e.target.value
-        })
-    }
-
-    changeSideBName = e => {
-        this.setState({
-            sideBName: e.target.value
-        })
+    onChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value })
     }
 
     handleASongChange = idx => evt => {
@@ -112,24 +78,6 @@ class Card extends Component {
         });
     };
 
-    changeCardColor = e => {
-        this.setState({
-            bgColor: e.target.value
-        })
-    }
-
-    changeCardFontColor = e => {
-        this.setState({
-            fontColor: e.target.value
-        })
-    }
-
-    changeStyle = e => {
-        this.setState({
-            style: e.target.value
-        })
-    }
-
     addImage = e => { //WORKS
         const file = e.target.files;
         if (file.length > 0) {
@@ -143,48 +91,6 @@ class Card extends Component {
                 coverImg: ''
             })
         }
-    }
-
-    changeNote1 = e => {
-        this.setState({
-            cardNote1: e.target.value
-        })
-    }
-
-    changeNote2 = e => {
-        this.setState({
-            cardNote2: e.target.value
-        })
-    }
-
-    changeSideASource = e => {
-        this.setState({
-            sideASource: e.target.value
-        })
-    }
-
-    changeSideBSource = e => {
-        this.setState({
-            sideBSource: e.target.value
-        })
-    }
-
-    changeNRType = e => {
-        this.setState({
-            nrType: e.target.value
-        })
-    }
-
-    changeSideATitle = e => {
-        this.setState({
-            sideAName: e.target.value
-        })
-    }
-
-    changeSideBTitle = e => {
-        this.setState({
-            sideBName: e.target.value
-        })
     }
 
     changeTitleSize = e => {
@@ -285,20 +191,20 @@ class Card extends Component {
                         <div id="style-form">
                             <div id="front-style">
                                 <h4>Cover Style</h4>
-                                <input type="radio" id="text-vertical" name="style" value="text-vertical"
-                                    onChange={(e) => this.changeStyle(e)}></input>
+                                <input defaultChecked="true" type="radio" id="text-vertical" name="style" value="text-vertical"
+                                    onChange={(e) => this.onChange(e)}></input>
                                 <label htmlFor="text-vertical">Vertical Song-List</label>
                                 <br />
                                 <input type="radio" id="text-horizontal" name="style" value="text-horizontal"
-                                    onChange={(e) => this.changeStyle(e)}></input>
+                                    onChange={(e) => this.onChange(e)}></input>
                                 <label htmlFor="text-horizontal">Horizontal Song-List</label>
                                 <br />
                                 <input type="radio" id="img-with-text" name="style" value="img-with-text"
-                                    onChange={(e) => this.changeStyle(e)}></input>
+                                    onChange={(e) => this.onChange(e)}></input>
                                 <label htmlFor="img-with-text">Image With Song-List</label>
                                 <br />
                                 <input type="radio" id="img-only" name="style" value="img-only"
-                                    onChange={(e) => this.changeStyle(e)}></input>
+                                    onChange={(e) => this.onChange(e)}></input>
                                 <label htmlFor="img-only">Image Only</label>
                                 <br />
                                 <label htmlFor="cover-upload">Cover Image:</label>
@@ -308,28 +214,28 @@ class Card extends Component {
 
                             <div id="font-form">
                                 <h4>Font-Style</h4>
-                                <input type="radio" id="courier" name="font-family" value="'Courier New', Courier, monospace"
-                                    onChange={(e) => this.changeFontFamily(e)}></input>
+                                <input defaultChecked="true" type="radio" id="courier" name="fontFamily" value="'Courier New', Courier, monospace"
+                                    onChange={(e) => this.onChange(e)}></input>
                                 <label htmlFor="courier">Courier</label>
                                 <br />
-                                <input type="radio" id="Sans-Serif" name="font-family" value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
-                                    onChange={(e) => this.changeFontFamily(e)}></input>
+                                <input type="radio" id="Sans-Serif" name="fontFamily" value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                                    onChange={(e) => this.onChange(e)}></input>
                                 <label htmlFor="Sans-Serif">Sans-Serif</label>
                                 <br />
-                                <input type="radio" id="handwritten" name="font-family" value="'Gloria Hallelujah', cursive"
-                                    onChange={(e) => this.changeFontFamily(e)}></input>
+                                <input type="radio" id="handwritten" name="fontFamily" value="'Gloria Hallelujah', cursive"
+                                    onChange={(e) => this.onChange(e)}></input>
                                 <label htmlFor="handwritten">Hand-Written</label>
                             </div>
 
                             <div id="color-form">
                                 <h4>Colors</h4>
-                                <label htmlFor="card-color-input" name="card-color-input">Card Color:</label>
-                                <input type="color" value="#ffffff" id="card-color-input" name="card-color-input"
-                                    onChange={(e) => this.changeCardColor(e)}></input>
+                                <label htmlFor="card-color-input" name="bgColor">Card Color:</label>
+                                <input type="color" value="#ffffff" id="card-color-input" name="bgColor"
+                                    onChange={(e) => this.onChange(e)}></input>
 
-                                <label htmlFor="font-color-input" name="font-color-input">Font Color:</label>
-                                <input type="color" id="font-color-input" name="font-color-input"
-                                    onChange={(e) => this.changeCardFontColor(e)}></input>
+                                <label htmlFor="font-color-input" name="fontColor">Font Color:</label>
+                                <input type="color" id="font-color-input" name="fontColor"
+                                    onChange={(e) => this.onChange(e)}></input>
                             </div>
                         </div>
                     </div>
@@ -339,29 +245,29 @@ class Card extends Component {
                         <div id="titles-form">
                             <div className="titles-form-inputs">
                                 <label htmlFor="title-input">Title:</label>
-                                <input type="text" id="title-input" name="title-input" placeholder="Title"
-                                    onChange={(e) => this.changeTitle(e)}></input>
+                                <input type="text" id="title-input" name="title" defaultValue="Title"
+                                    onChange={(e) => this.onChange(e)}></input>
 
                                 <label htmlFor="subtitle-input">Sub-Title:</label>
-                                <input type="text" id="subtitle-input" name="subtitle-input" placeholder="Sub-Title"
-                                    onChange={(e) => this.changeSubTitle(e)}></input>
+                                <input type="text" id="subtitle-input" name="subtitle" defaultValue="Sub-Title"
+                                    onChange={(e) => this.onChange(e)}></input>
 
                                 <label htmlFor="sideATitle-input">Side A Title:</label>
-                                <input type="text" id="sideATitle-input" name="sideATitle-input" placeholder="Side A"
-                                    onChange={(e) => this.changeSideATitle(e)}></input>
+                                <input type="text" id="sideATitle-input" name="sideAName" defaultValue="Side A"
+                                    onChange={(e) => this.onChange(e)}></input>
 
                                 <label htmlFor="sideBTitle-input">Side B Title:</label>
-                                <input type="text" id="sideBTitle-input" name="sideBTitle-input" placeholder="Side B"
-                                    onChange={(e) => this.changeSideBTitle(e)}></input>
+                                <input type="text" id="sideBTitle-input" name="sideBName" defaultValue="Side B"
+                                    onChange={(e) => this.onChange(e)}></input>
                             </div>
 
                             <div className="titles-form-inputs">
                                 <label htmlFor="title-input-fontsize">Title Size:</label>
-                                <input type="number" id="title-input-fontsize" name="title-input-fontsize" placeholder="11"
+                                <input type="number" id="title-input-fontsize" name="title-input-fontsize" defaultValue="11"
                                     onChange={(e) => this.changeTitleSize(e)}></input>
 
                                 <label htmlFor="sub-title-input-fontsize">Sub-Title Size:</label>
-                                <input type="number" id="sub-title-input-fontsize" name="sub-title-input-fontsize" placeholder="11"
+                                <input type="number" id="sub-title-input-fontsize" name="sub-title-input-fontsize" defaultValue="11"
                                     onChange={(e) => this.changeSubTitleSize(e)}></input>
 
 
@@ -374,27 +280,27 @@ class Card extends Component {
                         <div id="other-form">
                             <br />
                             <label htmlFor="note1-input">Note 1:</label>
-                            <input type="text" id="note1-input" name="note1-input" placeholder="Note 1:"
-                                onChange={(e) => this.changeNote1(e)}></input>
+                            <input type="text" id="note1-input" name="cardNote1" placeholder="Note 1:"
+                                onChange={(e) => this.onChange(e)}></input>
 
                             <br />
                             <label htmlFor="note2-input">Note 2:</label>
-                            <input type="text" id="note2-input" name="note2-input" placeholder="Note 2:"
-                                onChange={(e) => this.changeNote2(e)}></input>
+                            <input type="text" id="note2-input" name="cardNote2" placeholder="Note 2:"
+                                onChange={(e) => this.onChange(e)}></input>
 
                             <br />
                             <label htmlFor="nrType-input">Side A Source:</label>
-                            <input type="text" id="sideASource-input" name="sideASource-input" placeholder="Side A Source:"
-                                onChange={(e) => this.changeSideASource(e)}></input>
+                            <input type="text" id="sideASource-input" name="sideASource" placeholder="Side A Source:"
+                                onChange={(e) => this.onChange(e)}></input>
                             <br />
                             <label htmlFor="nrType-input">Side B Source:</label>
-                            <input type="text" id="sideBSource-input" name="sideBSource-input" placeholder="Side B Source:"
-                                onChange={(e) => this.changeSideBSource(e)}></input>
+                            <input type="text" id="sideBSource-input" name="sideBSource" placeholder="Side B Source:"
+                                onChange={(e) => this.onChange(e)}></input>
 
                             <br />
                             <label htmlFor="nrType-input">Noise Reduction:</label>
-                            <input type="text" id="nrType-input" name="nrType-input" placeholder="Noise Reduction:"
-                                onChange={(e) => this.changeNRType(e)}></input>
+                            <input type="text" id="nrType-input" name="nrType" placeholder="Noise Reduction:"
+                                onChange={(e) => this.onChange(e)}></input>
                         </div>
                     </div>
 
@@ -403,7 +309,7 @@ class Card extends Component {
                         
                         <div className="font-size-input">
                             <label htmlFor="side-title-input-fontsize">Song Name Size:</label>
-                            <input type="number" id="side-title-input-fontsize" name="side-title-input-fontsize" placeholder="10.5"
+                            <input type="number" id="side-title-input-fontsize" name="side-title-input-fontsize" defaultValue="10.5"
                                 onChange={(e) => this.changeSongSize(e)}></input>
                         </div>
                         
