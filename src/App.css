@@ -355,10 +355,12 @@ button:focus {
 }
 
 .img-only.cover {
+  background-color: inherit;
   display: initial;
   height: inherit;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .img-only.cover-text {
