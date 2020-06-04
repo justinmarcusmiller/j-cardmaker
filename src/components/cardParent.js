@@ -184,9 +184,7 @@ class CardParent extends Component {
           addImage={this.addImage}
           ref={this.CardFormElement}
         />
-        <footer>
-          <p>Copyright 2020 - Justin Miller</p>
-        </footer>
+        
       </div>
     );
   }
