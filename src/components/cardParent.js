@@ -9,8 +9,8 @@ class CardParent extends Component {
     this.state = {
       title: "Title",
       subtitle: "Sub-Title",
-      Asongs: [{ name: "Number 1" }],
-      Bsongs: [{ name: "Number 1" }],
+      Asongs: [{ name: "One" }, {name: "Two"}, {name: "Three"}, {name: "Four"}, {name: "Five"}],
+      Bsongs: [{ name: "One" }, {name: "Two"}, {name: "Three"}, {name: "Four"}, {name: "Five"}],
       sideAName: "Side A",
       sideBName: "Side B",
       nrType: "Dolby B",

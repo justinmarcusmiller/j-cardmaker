@@ -354,15 +354,18 @@ button:focus {
 }
 
 .img-with-text li:not(:last-child)::after {
-  content: " •";
+  content: " • ";
+  margin-right: 3px;
+}
+
+.jcard-back2 li:not(:last-child)::after {
+  content: unset;
 }
 
 .jcard.text-horizontal  {
   transform: rotateZ(90deg);
   box-shadow: 4px 0px 6px 0 hsla(0, 0%, 0%, 0.2);
 }
-
-
 
 .img-only.cover {
   background-color: inherit;
