@@ -112,7 +112,6 @@ class CardParent extends Component {
   };
 
   addImage = (e) => {
-    //WORKS
     const file = e.target.files;
     if (file.length > 0) {
       const cover = URL.createObjectURL(file[0]);

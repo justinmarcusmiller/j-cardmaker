@@ -13,109 +13,81 @@ class CardForm extends Component {
         <div className="settings-card">
           <h3>Styling</h3>
           <div id="style-form">
-            <div id="front-style">
-              <h4>Cover Style</h4>
-              <input
-                defaultChecked="true"
-                type="radio"
-                id="text-vertical"
-                name="style"
-                value="text-vertical"
-                onChange={(e) => this.props.onChange(e)}
-              ></input>
-              <label htmlFor="text-vertical">Vertical Song-List</label>
-              <br />
-              <input
-                type="radio"
-                id="text-horizontal"
-                name="style"
-                value="text-horizontal"
-                onChange={(e) => this.props.onChange(e)}
-              ></input>
-              <label htmlFor="text-horizontal">Horizontal Song-List</label>
-              <br />
-              <input
-                type="radio"
-                id="img-with-text"
-                name="style"
-                value="img-with-text"
-                onChange={(e) => this.props.onChange(e)}
-              ></input>
-              <label htmlFor="img-with-text">Image With Song-List</label>
-              <br />
-              <input
-                type="radio"
-                id="img-only"
-                name="style"
-                value="img-only"
-                onChange={(e) => this.props.onChange(e)}
-              ></input>
-              <label htmlFor="img-only">Image Only</label>
-              <br />
-              <label htmlFor="cover-upload">Cover Image:</label>
-              <input
-                type="file"
-                id="cover-upload"
-                name="cover-upload"
-                attrs='accepts="image/*"'
-                onChange={(e) => this.props.addImage(e)}
-              ></input>
-            </div>
+            <label htmlFor="cover-upload">Cover Style: </label>
+            <select
+              id="style"
+              name="style"
+              onChange={(e) => this.props.onChange(e)}
+            >
+              <option value="text-vertical">Vertical Text</option>
+              <option value="text-horizontal">Horizontal Text</option>
+              <option value="img-with-text">Image With Text</option>
+              <option value="img-only">Image Only</option>
+            </select>
+            <label htmlFor="cover-upload">Cover Image:</label>
+            <input
+              type="file"
+              id="cover-upload"
+              name="cover-upload"
+              attrs='accepts="image/*"'
+              onChange={(e) => this.props.addImage(e)}
+            ></input>
 
-            <div id="font-form">
-              <h4>Font-Style</h4>
-              <input
-                defaultChecked="true"
-                type="radio"
-                id="courier"
-                name="fontFamily"
-                value="'Courier New', Courier, monospace"
-                onChange={(e) => this.props.onChange(e)}
-              ></input>
-              <label htmlFor="courier">Courier</label>
-              <br />
-              <input
-                type="radio"
-                id="Sans-Serif"
-                name="fontFamily"
-                value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
-                onChange={(e) => this.props.onChange(e)}
-              ></input>
-              <label htmlFor="Sans-Serif">Sans-Serif</label>
-              <br />
-              <input
-                type="radio"
-                id="handwritten"
-                name="fontFamily"
-                value="'Gloria Hallelujah', cursive"
-                onChange={(e) => this.props.onChange(e)}
-              ></input>
-              <label htmlFor="handwritten">Hand-Written</label>
-            </div>
+            <label htmlFor="fontFamily">Font-Style: </label>
+            <select
+              id="fontFamily"
+              name="fontFamily"
+              onChange={(e) => this.props.onChange(e)}
+            >
+              <option value="'Courier New', Courier, monospace">
+                Monospace
+              </option>
+              <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                Sans-Serif
+              </option>
+              <option value="'Times New Roman', Times, serif">Serif</option>
+              <option value="'Gloria Hallelujah', cursive">Hand-Written</option>
+            </select>
 
-            <div id="color-form">
-              <h4>Colors</h4>
-              <label htmlFor="card-color-input" name="bgColor">
-                Card Color:
-              </label>
-              <input
-                type="color"
-                value="#ffffff"
-                id="card-color-input"
-                name="bgColor"
-                onChange={(e) => this.props.onChange(e)}
-              ></input>
+            <label htmlFor="card-color-input" name="bgColor">
+              Card Color:
+            </label>
+            <input
+              type="color"
+              value="#ffffff"
+              id="card-color-input"
+              name="bgColor"
+              onChange={(e) => this.props.onChange(e)}
+            ></input>
+            <label htmlFor="font-color-input" name="fontColor">
+              Font Color:
+            </label>
+            <input
+              type="color"
+              id="font-color-input"
+              name="fontColor"
+              onChange={(e) => this.props.onChange(e)}
+            ></input>
 
-              <label htmlFor="font-color-input" name="fontColor">
-                Font Color:
-              </label>
-              <input
-                type="color"
-                id="font-color-input"
-                name="fontColor"
-                onChange={(e) => this.props.onChange(e)}
-              ></input>
-            </div>
+            <label htmlFor="spineStyle">Spine Style: </label>
+            <select
+              id="spineStyle"
+              name="spineStyle"
+              onChange={(e) => this.props.onChange(e)}
+            >
+              <option value="spineNormal">Normal</option>
+              <option value="spineReverse">Reverse</option>
+            </select>
+
+            <label htmlFor="backStyle">Back Style: </label>
+            <select
+              id="backStyle"
+              name="backStyle"
+              onChange={(e) => this.props.onChange(e)}
+            >
+              <option value="back1">Tape Info</option>
+              <option value="back2">Track-List</option>
+            </select>
           </div>
         </div>
 
