@@ -56,8 +56,6 @@ body {
   font-weight: bold;
 }
 
-
-
 .jcard-side {
   border-top: black 1px solid;
   border-bottom: black 1px solid;
@@ -223,6 +221,10 @@ select {
   padding: 5px 10px;
 }
 
+option:focus, option:hover {
+  background-color: red;
+}
+
 input[type=text]{
   font-size: 16px;
   line-height: 1.5;
@@ -262,19 +264,13 @@ input[type=number]{
 
 .delete-btn {
   background-color:#E53E3E;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   border-radius: 25px;
   border: 0;
   height: 32px;
   width: 32px;
   color: #FFF5F5;
-  line-height: 1;
   margin-left: 5px;
   padding: 5px;
-}
-
-.delete-btn:hover {
-  background-color: #C53030;
 }
 
 .song {
@@ -292,7 +288,7 @@ button {
 }
 
 button:hover {
-  transform: translateY(-1px);
+  opacity: .8;
 }
 
 button:focus {
@@ -419,7 +415,7 @@ button:focus {
   display: grid;
   grid-template-columns: 20% auto;
   justify-content: flex-start;
-  height: 300px;
+  height: 400px;
   align-items: baseline;
   align-content: space-evenly;
   margin-left: 120px;
@@ -466,7 +462,7 @@ button:focus {
 
 .add-btn {
   display: block;
-  margin: 15px auto;
+  margin: 0 auto 25px auto;
 }
 
 #front-style input, #font-form input {

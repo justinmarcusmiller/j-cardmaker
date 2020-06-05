@@ -54,7 +54,7 @@ class CardForm extends Component {
             </label>
             <input
               type="color"
-              value="#ffffff"
+              defaultValue="#ffffff"
               id="card-color-input"
               name="bgColor"
               onChange={(e) => this.props.onChange(e)}
@@ -229,7 +229,7 @@ class CardForm extends Component {
                 <p>{idx + 1 + "."}</p>
                 <input
                   type="text"
-                  placeholder={`Song #${idx + 1}`}
+                  placeholder={`New Song`}
                   value={song.name}
                   onChange={this.props.handleASongChange(idx)}
                 />
@@ -258,7 +258,7 @@ class CardForm extends Component {
                 <p>{idx + 1 + "."}</p>
                 <input
                   type="text"
-                  placeholder={`Song #${idx + 1}`}
+                  placeholder={`New Song`}
                   value={song.name}
                   onChange={this.props.handleBSongChange(idx)}
                 />
