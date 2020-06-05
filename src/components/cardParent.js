@@ -29,6 +29,9 @@ class CardParent extends Component {
       subtitleFontSize: 11,
       backStyle: "back1",
       spineStyle: "spineNormal",
+      coverImagePosition: "top",
+      coverImageSize: "contain",
+      CoverImageRepeat: "no-repeat"
     };
 
     this.CardPreviewElement = React.createRef();

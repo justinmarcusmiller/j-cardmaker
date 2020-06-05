@@ -320,11 +320,7 @@ button:focus {
   display: none;
   height: 2.5in;
   position: absolute;
-  background-color: lightgray;
   transform: translateY(-5px) translateX(-1.25in);
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
-  
 }
 
 .img-with-text.cover {
@@ -413,7 +409,7 @@ button:focus {
 
 #style-form {
   display: grid;
-  grid-template-columns: 20% auto;
+  grid-template-columns: 23% auto;
   justify-content: flex-start;
   height: 400px;
   align-items: baseline;

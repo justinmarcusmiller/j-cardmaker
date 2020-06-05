@@ -33,6 +33,38 @@ class CardForm extends Component {
               onChange={(e) => this.props.addImage(e)}
             ></input>
 
+            <label htmlFor="coverImagePosition">Image Position:</label>
+            <select
+              id="coverImagePosition"
+              name="coverImagePosition"
+              onChange={(e) => this.props.onChange(e)}
+            >
+              <option value="top">Top</option>
+              <option value="center" selected>Center</option>
+              <option value="bottom">Bottom</option>
+            </select>
+
+            <label htmlFor="coverImageSize">Image Size:</label>
+            <select
+              id="coverImageSize"
+              name="coverImageSize"
+              onChange={(e) => this.props.onChange(e)}
+            >
+              <option value="contain" selected>Contain</option>
+              <option value="cover">Cover</option>
+              <option value="90%">90%</option>
+            </select>
+
+            <label htmlFor="coverImageRepeat">Image Repeat:</label>
+            <select
+              id="coverImageRepeat"
+              name="coverImageRepeat"
+              onChange={(e) => this.props.onChange(e)}
+            >
+              <option value="repeat" selected>Repeat</option>
+              <option value="no-repeat">No Repeat</option>
+            </select>
+
             <label htmlFor="fontFamily">Font-Style: </label>
             <select
               id="fontFamily"
