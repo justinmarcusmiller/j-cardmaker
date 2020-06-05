@@ -5,7 +5,6 @@ class CardPreview extends Component {
   constructor(props) {
     super(props);
     this.state = props.State;
-    
   }
 
   render() {
@@ -22,8 +21,12 @@ class CardPreview extends Component {
           {/* Front of J-Card */}
           <div className={this.state.style + " jcard-front"}>
             <div
-              style={{ backgroundImage: "url(" + this.state.coverImg + ")", backgroundPosition: this.state.coverImagePosition, backgroundSize: this.state.coverImageSize, backgroundRepeat: this.state.coverImageRepeat }}
-                      
+              style={{
+                backgroundImage: "url(" + this.state.coverImg + ")",
+                backgroundPosition: this.state.coverImagePosition,
+                backgroundSize: this.state.coverImageSize,
+                backgroundRepeat: this.state.coverImageRepeat,
+              }}
               className={this.state.style + " cover"}
             ></div>
             <div className={this.state.style + " cover-text"}>

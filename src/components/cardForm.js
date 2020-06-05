@@ -40,7 +40,9 @@ class CardForm extends Component {
               onChange={(e) => this.props.onChange(e)}
             >
               <option value="top">Top</option>
-              <option value="center" selected>Center</option>
+              <option value="center" selected>
+                Center
+              </option>
               <option value="bottom">Bottom</option>
             </select>
 
@@ -50,7 +52,9 @@ class CardForm extends Component {
               name="coverImageSize"
               onChange={(e) => this.props.onChange(e)}
             >
-              <option value="contain" selected>Contain</option>
+              <option value="contain" selected>
+                Contain
+              </option>
               <option value="cover">Cover</option>
               <option value="90%">90%</option>
             </select>
@@ -61,7 +65,9 @@ class CardForm extends Component {
               name="coverImageRepeat"
               onChange={(e) => this.props.onChange(e)}
             >
-              <option value="repeat" selected>Repeat</option>
+              <option value="repeat" selected>
+                Repeat
+              </option>
               <option value="no-repeat">No Repeat</option>
             </select>
 

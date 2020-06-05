@@ -9,8 +9,20 @@ class CardParent extends Component {
     this.state = {
       title: "Title",
       subtitle: "Sub-Title",
-      Asongs: [{ name: "One" }, {name: "Two"}, {name: "Three"}, {name: "Four"}, {name: "Five"}],
-      Bsongs: [{ name: "One" }, {name: "Two"}, {name: "Three"}, {name: "Four"}, {name: "Five"}],
+      Asongs: [
+        { name: "One" },
+        { name: "Two" },
+        { name: "Three" },
+        { name: "Four" },
+        { name: "Five" },
+      ],
+      Bsongs: [
+        { name: "One" },
+        { name: "Two" },
+        { name: "Three" },
+        { name: "Four" },
+        { name: "Five" },
+      ],
       sideAName: "Side A",
       sideBName: "Side B",
       nrType: "Dolby B",
@@ -31,7 +43,7 @@ class CardParent extends Component {
       spineStyle: "spineNormal",
       coverImagePosition: "top",
       coverImageSize: "contain",
-      CoverImageRepeat: "no-repeat"
+      CoverImageRepeat: "no-repeat",
     };
 
     this.CardPreviewElement = React.createRef();
@@ -41,7 +53,9 @@ class CardParent extends Component {
   // Functions
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    this.CardPreviewElement.current.setState({ [e.target.name]: e.target.value });
+    this.CardPreviewElement.current.setState({
+      [e.target.name]: e.target.value,
+    });
   };
 
   handleASongChange = (idx) => (evt) => {
@@ -61,10 +75,10 @@ class CardParent extends Component {
     });
     this.CardPreviewElement.current.setState({
       Asongs: this.state.Asongs.filter((s, sidx) => idx !== sidx),
-    })
+    });
     this.CardFormElement.current.setState({
       Asongs: this.state.Asongs.filter((s, sidx) => idx !== sidx),
-    })
+    });
   };
 
   handleAddASong = () => {
@@ -76,7 +90,7 @@ class CardParent extends Component {
     });
     this.CardFormElement.current.setState({
       Asongs: this.state.Asongs.concat([{ name: "" }]),
-    })
+    });
   };
 
   handleBSongChange = (idx) => (evt) => {
@@ -166,9 +180,7 @@ class CardParent extends Component {
   render() {
     return (
       <div className="content-wrapper">
-        <CardPreview 
-          State={this.state} 
-          ref={this.CardPreviewElement}/>
+        <CardPreview State={this.state} ref={this.CardPreviewElement} />
 
         {/* Form */}
         <CardForm
@@ -182,11 +194,10 @@ class CardParent extends Component {
           onChange={this.onChange}
           changeTitleSize={this.changeTitleSize}
           changeSubTitleSize={this.changeSubTitleSize}
-          changeSongSize={this.changeSongSize} 
+          changeSongSize={this.changeSongSize}
           addImage={this.addImage}
           ref={this.CardFormElement}
         />
-        
       </div>
     );
   }
