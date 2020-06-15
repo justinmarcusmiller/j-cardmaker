@@ -30,13 +30,13 @@ class CardPreview extends Component {
               className={this.state.style + " cover"}
             ></div>
             <div className={this.state.style + " cover-text"}>
-              <h1 style={{ fontSize: this.state.titleFontSize }}>
+              <h1 style={{ fontSize: this.state.titleFontSize, color: this.state.titleColor }}>
                 {this.state.title}
               </h1>
-              <h2 style={{ fontSize: this.state.subtitleFontSize }}>
+              <h2 style={{ fontSize: this.state.subtitleFontSize, color: this.state.titleColor }}>
                 {this.state.subtitle}
               </h2>
-              <p style={{ fontSize: this.state.songFontSize }}>
+              <p style={{ fontSize: this.state.songFontSize, textAlign: this.state.sideTitleAlign, color: this.state.sideNameColor }}>
                 {this.state.sideAName}
               </p>
               <ol>
@@ -50,7 +50,7 @@ class CardPreview extends Component {
                 ))}
               </ol>
 
-              <p style={{ fontSize: this.state.songFontSize }}>
+              <p style={{ fontSize: this.state.songFontSize, textAlign: this.state.sideTitleAlign, color: this.state.sideNameColor  }}>
                 {this.state.sideBName}
               </p>
               <ol>

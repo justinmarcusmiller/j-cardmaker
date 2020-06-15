@@ -44,6 +44,9 @@ class CardParent extends Component {
       coverImagePosition: "top",
       coverImageSize: "contain",
       CoverImageRepeat: "no-repeat",
+      sideTitleAlign: "center",
+      titleColor: "#000",
+      sideNameColor: "#FF0000"
     };
 
     this.CardPreviewElement = React.createRef();

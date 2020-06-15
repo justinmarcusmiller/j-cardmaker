@@ -37,12 +37,11 @@ class CardForm extends Component {
             <select
               id="coverImagePosition"
               name="coverImagePosition"
+              defaultValue="center"
               onChange={(e) => this.props.onChange(e)}
             >
               <option value="top">Top</option>
-              <option value="center" selected>
-                Center
-              </option>
+              <option value="center">Center</option>
               <option value="bottom">Bottom</option>
             </select>
 
@@ -50,11 +49,10 @@ class CardForm extends Component {
             <select
               id="coverImageSize"
               name="coverImageSize"
+              defaultValue="contain"
               onChange={(e) => this.props.onChange(e)}
             >
-              <option value="contain" selected>
-                Contain
-              </option>
+              <option value="contain">Contain</option>
               <option value="cover">Cover</option>
               <option value="90%">90%</option>
             </select>
@@ -63,11 +61,10 @@ class CardForm extends Component {
             <select
               id="coverImageRepeat"
               name="coverImageRepeat"
+              defaultValue="repeat"
               onChange={(e) => this.props.onChange(e)}
             >
-              <option value="repeat" selected>
-                Repeat
-              </option>
+              <option value="repeat">Repeat</option>
               <option value="no-repeat">No Repeat</option>
             </select>
 
@@ -97,6 +94,29 @@ class CardForm extends Component {
               name="bgColor"
               onChange={(e) => this.props.onChange(e)}
             ></input>
+            
+            <label htmlFor="title-color-input" name="titleColor">
+              Title Color:
+            </label>
+            <input
+              type="color"
+              id="title-color-input"
+              defaultValue="#000"
+              name="titleColor"
+              onChange={(e) => this.props.onChange(e)}
+            ></input>
+
+            <label htmlFor="title-color-input" name="titleColor">
+              Side Name Color:
+            </label>
+            <input
+              type="color"
+              id="sideName-color-input"
+              defaultValue="#FF0000"
+              name="sideNameeColor"
+              onChange={(e) => this.props.onChange(e)}
+            ></input>
+
             <label htmlFor="font-color-input" name="fontColor">
               Font Color:
             </label>
@@ -126,6 +146,45 @@ class CardForm extends Component {
               <option value="back1">Tape Info</option>
               <option value="back2">Track-List</option>
             </select>
+
+            <label htmlFor="sideTitleAlign">Title Alignment: </label>
+            <select
+              id="sideTitleAlign"
+              name="sideTitleAlign"
+              defaultValue="center"
+              onChange={(e) => this.props.onChange(e)}
+            >
+              <option value="left">Left</option>
+              <option value="center">Center</option>
+              <option value="right">Right</option>
+            </select>
+
+            <label htmlFor="title-input-fontsize">Title Size:</label>
+            <input
+              type="number"
+              id="title-input-fontsize"
+              name="title-input-fontsize"
+              defaultValue="11"
+              onChange={(e) => this.props.changeTitleSize(e)}
+            ></input>
+
+            <label htmlFor="sub-title-input-fontsize">Sub-Title Size:</label>
+            <input
+              type="number"
+              id="sub-title-input-fontsize"
+              name="sub-title-input-fontsize"
+              defaultValue="11"
+              onChange={(e) => this.props.changeSubTitleSize(e)}
+            ></input>
+
+            <label htmlFor="side-title-input-fontsize">Song Name Size:</label>
+            <input
+              type="number"
+              id="side-title-input-fontsize"
+              name="side-title-input-fontsize"
+              defaultValue="10.5"
+              onChange={(e) => this.props.changeSongSize(e)}
+            ></input>
           </div>
         </div>
 
@@ -167,26 +226,6 @@ class CardForm extends Component {
                 name="sideBName"
                 defaultValue="Side B"
                 onChange={(e) => this.props.onChange(e)}
-              ></input>
-            </div>
-
-            <div className="titles-form-inputs">
-              <label htmlFor="title-input-fontsize">Title Size:</label>
-              <input
-                type="number"
-                id="title-input-fontsize"
-                name="title-input-fontsize"
-                defaultValue="11"
-                onChange={(e) => this.props.changeTitleSize(e)}
-              ></input>
-
-              <label htmlFor="sub-title-input-fontsize">Sub-Title Size:</label>
-              <input
-                type="number"
-                id="sub-title-input-fontsize"
-                name="sub-title-input-fontsize"
-                defaultValue="11"
-                onChange={(e) => this.props.changeSubTitleSize(e)}
               ></input>
             </div>
           </div>
@@ -248,17 +287,6 @@ class CardForm extends Component {
 
         <div className="settings-card">
           <h3>Song List</h3>
-
-          <div className="font-size-input">
-            <label htmlFor="side-title-input-fontsize">Song Name Size:</label>
-            <input
-              type="number"
-              id="side-title-input-fontsize"
-              name="side-title-input-fontsize"
-              defaultValue="10.5"
-              onChange={(e) => this.props.changeSongSize(e)}
-            ></input>
-          </div>
 
           <h4>Side A</h4>
           <div className="song-list">
