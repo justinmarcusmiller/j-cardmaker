@@ -255,7 +255,7 @@ class CardForm extends Component {
             ></input>
 
             <br />
-            <label htmlFor="nrType-input">Side A Source:</label>
+            <label htmlFor="sideASource-input">Side A Source:</label>
             <input
               type="text"
               id="sideASource-input"
@@ -264,7 +264,7 @@ class CardForm extends Component {
               onChange={(e) => this.props.onChange(e)}
             ></input>
             <br />
-            <label htmlFor="nrType-input">Side B Source:</label>
+            <label htmlFor="sideBSource-input">Side B Source:</label>
             <input
               type="text"
               id="sideBSource-input"
@@ -280,7 +280,7 @@ class CardForm extends Component {
               id="nrType-input"
               name="nrType"
               placeholder="Noise Reduction:"
-              onChange={(e) => this.onChange(e)}
+              onChange={(e) => this.props.onChange(e)}
             ></input>
           </div>
         </div>
