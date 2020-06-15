@@ -113,7 +113,7 @@ class CardForm extends Component {
               type="color"
               id="sideName-color-input"
               defaultValue="#FF0000"
-              name="sideNameeColor"
+              name="sideNameColor"
               onChange={(e) => this.props.onChange(e)}
             ></input>
 
@@ -147,7 +147,7 @@ class CardForm extends Component {
               <option value="back2">Track-List</option>
             </select>
 
-            <label htmlFor="sideTitleAlign">Title Alignment: </label>
+            <label htmlFor="sideTitleAlign">Side Name Alignment: </label>
             <select
               id="sideTitleAlign"
               name="sideTitleAlign"
