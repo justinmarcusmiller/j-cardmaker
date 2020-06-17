@@ -105,6 +105,15 @@ li {
   font-weight: bold;
 }
 
+.text-vertical.jcard ol {
+  list-style-position: outside;
+  list-style: decimal-leading-zero;
+}
+
+.text-vertical.jcard li {
+  margin-left: 30px;
+}
+
 .jcard-back {
   position: absolute;
   display: flex;
