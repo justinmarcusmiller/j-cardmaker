@@ -424,7 +424,7 @@ button:focus {
   background-color: #F7FAFC;
   padding: 15px;
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
-  border-top: 5px solid royalblue;
+  border-top: 5px solid #4169e1;
   border-radius: 5px;
   width: 700px;
 }
@@ -523,12 +523,21 @@ footer {
     width: unset;
     margin: 15px 5px;
   }
+  #style-form {
+    margin-left: 0;
+    grid-template-columns: 50% 50%;
+    min-height: 900px;
+  }
 }
 
 @media screen and (max-width: 500px) {
   label {
     font-size: 14px;
     inline-size: max-content;
+  }
+
+  .settings-card {
+    width: 96vw;
   }
 
   input[type=number] {
@@ -547,6 +556,11 @@ footer {
 
   #style-form {
     justify-content: center;
+    grid-template-columns: 45% 55%;
+  }
+
+  input[type="file" i] {
+    font-size: 13px;
   }
 
   input[type=text] {
