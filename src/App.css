@@ -264,6 +264,14 @@ input[type=number]{
   width: 75px;
 } 
 
+label, input[type=color], input[type=number] {
+  height: 31px;
+}
+
+.titles-form-inputs label {
+  margin: auto;
+}
+
 .delete-btn {
   background-color:#E53E3E;
   border-radius: 25px;
@@ -413,9 +421,8 @@ button:focus {
   display: grid;
   grid-template-columns: 33% auto;
   justify-content: flex-start;
-  height: 500px;
+  min-height: 500px;
   align-items: baseline;
-  align-content: space-evenly;
   margin-left: 90px;
 }
 
