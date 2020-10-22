@@ -1,209 +1,172 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import CardPreview from "./cardPreview";
 import CardForm from "./cardForm";
 
-class CardParent extends Component {
-  constructor() {
-    super();
-    this.state = {
-      title: "Title",
-      subtitle: "Sub-Title",
-      Asongs: [
+function CardParent() {
+    let [title, setTitle] = useState("Title");
+    let [subtitle, setSubtitle] = useState("Sub-Title");
+    let [Asongs, setAsongs] = useState([
         { name: "One" },
         { name: "Two" },
         { name: "Three" },
         { name: "Four" },
         { name: "Five" },
-      ],
-      Bsongs: [
+    ]);
+    let [Bsongs, setBsongs] = useState([
         { name: "One" },
         { name: "Two" },
         { name: "Three" },
         { name: "Four" },
         { name: "Five" },
-      ],
-      sideAName: "Side A",
-      sideBName: "Side B",
-      nrType: "Dolby B",
-      tapeType: 1,
-      bgColor: "#FFF",
-      fontColor: "#000",
-      style: "text-vertical",
-      fontFamily: "'Courier New', Courier, monospace",
-      coverImg: "",
-      cardNote1: "",
-      cardNote2: "",
-      sideASource: "",
-      sideBSource: "",
-      songFontSize: 10.5,
-      titleFontSize: 11,
-      subtitleFontSize: 11,
-      backStyle: "back1",
-      spineStyle: "spineNormal",
-      coverImagePosition: "top",
-      coverImageSize: "contain",
-      CoverImageRepeat: "no-repeat",
-      sideTitleAlign: "center",
-      titleColor: "#000",
-      sideNameColor: "#FF0000"
+    ]);
+    let [sideAName, setSideAName] = useState("Side A");
+    let [sideBName, setSideBName] = useState("Side B");
+    let [nrType, setNrType] = useState("Dolby B");
+    let [tapeType, setTapeType] = useState(1);
+    let [bgColor, setBGColor] = useState("#FFF");
+    let [fontColor, setFontColor] = useState("#000");
+    let [style, setStyle] = useState("text-vertical");
+    let [fontFamily, setFontFamily] = useState("'Courier New', Courier, monospace");
+    let [coverImg, setCoverImg] = useState("");
+    let [cardNote1, setCardNote1] = useState("");
+    let [cardNote2, setCardNote2] = useState("");
+    let [sideASource, setSideASource] = useState("");
+    let [sideBSource, setSideBSource] = useState("");
+    let [songFontSize, setSongFontSize] = useState(10.5);
+    let [titleFontSize, setTitleFontSize] = useState(11);
+    let [subtitleFontSize, setSubTitleFontSize] = useState(11);
+    let [backStyle, setBackStyle] = useState("back1");
+    let [spineStyle, setSpineStyle] = useState("spineNormal");
+    let [coverImagePosition, setCoverImagePosition] = useState("top");
+    let [coverImageSize, setCoverImageSize] = useState("contain");
+    let [coverImageRepeat, setCoverImageRepeat] = useState("no-repeat");
+    let [sideTitleAlign, setSideTitleAlign] = useState("center");
+    let [titleColor, setTitleColor] = useState("#000");
+    let [sideNameColor, setSideNameColor] = useState("#FF0000");
+
+    // Functions
+
+    const handleASongChange = (idx) => (evt) => {
+        const newSongs = Asongs.map((song, sidx) => {
+            if (idx !== sidx) return song;
+            return { ...song, name: evt.target.value };
+        });
+        setAsongs( newSongs )
     };
 
-    this.CardPreviewElement = React.createRef();
-    this.CardFormElement = React.createRef();
-  }
+    const handleRemoveASong = (idx) => () => {
+        setAsongs(Asongs.filter((s, sidx) => idx !== sidx))
+    };
 
-  // Functions
-  onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-    this.CardPreviewElement.current.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
+    const handleAddASong = () => {
+        setAsongs(Asongs.concat([{ name: "" }]))
+    };
 
-  handleASongChange = (idx) => (evt) => {
-    const newSongs = this.state.Asongs.map((song, sidx) => {
-      if (idx !== sidx) return song;
-      return { ...song, name: evt.target.value };
-    });
+    const handleBSongChange = (idx) => (evt) => {
+        const newSongs = Bsongs.map((song, sidx) => {
+            if (idx !== sidx) return song;
+            return { ...song, name: evt.target.value };
+        });
 
-    this.setState({ Asongs: newSongs });
-    this.CardPreviewElement.current.setState({ Asongs: newSongs });
-    this.CardFormElement.current.setState({ Asongs: newSongs });
-  };
+        setBsongs( newSongs )
+    };
 
-  handleRemoveASong = (idx) => () => {
-    this.setState({
-      Asongs: this.state.Asongs.filter((s, sidx) => idx !== sidx),
-    });
-    this.CardPreviewElement.current.setState({
-      Asongs: this.state.Asongs.filter((s, sidx) => idx !== sidx),
-    });
-    this.CardFormElement.current.setState({
-      Asongs: this.state.Asongs.filter((s, sidx) => idx !== sidx),
-    });
-  };
+    const handleRemoveBSong = (idx) => () => {
+        setBsongs(Bsongs.filter((s, sidx) => idx !== sidx))
+    };
 
-  handleAddASong = () => {
-    this.setState({
-      Asongs: this.state.Asongs.concat([{ name: "" }]),
-    });
-    this.CardPreviewElement.current.setState({
-      Asongs: this.state.Asongs.concat([{ name: "" }]),
-    });
-    this.CardFormElement.current.setState({
-      Asongs: this.state.Asongs.concat([{ name: "" }]),
-    });
-  };
+    const handleAddBSong = () => {
+        setBsongs(Bsongs.concat([{ name: "" }]))
+    };
 
-  handleBSongChange = (idx) => (evt) => {
-    const newSongs = this.state.Bsongs.map((song, sidx) => {
-      if (idx !== sidx) return song;
-      return { ...song, name: evt.target.value };
-    });
+    const addImage = (e) => {
+        const file = e.target.files;
+        if (file.length > 0) {
+            const cover = URL.createObjectURL(file[0]);
 
-    this.setState({ Bsongs: newSongs });
-    this.CardPreviewElement.current.setState({ Bsongs: newSongs });
-    this.CardFormElement.current.setState({ Bsongs: newSongs });
-  };
+            setCoverImg(cover)
 
-  handleRemoveBSong = (idx) => () => {
-    this.setState({
-      Bsongs: this.state.Bsongs.filter((s, sidx) => idx !== sidx),
-    });
-    this.CardPreviewElement.current.setState({
-      Bsongs: this.state.Bsongs.filter((s, sidx) => idx !== sidx),
-    });
-    this.CardFormElement.current.setState({
-      Bsongs: this.state.Bsongs.filter((s, sidx) => idx !== sidx),
-    });
-  };
+        } else {
+            setCoverImg("")
+        }
+    };
 
-  handleAddBSong = () => {
-    this.setState({
-      Bsongs: this.state.Bsongs.concat([{ name: "" }]),
-    });
-    this.CardPreviewElement.current.setState({
-      Bsongs: this.state.Bsongs.concat([{ name: "" }]),
-    });
-    this.CardFormElement.current.setState({
-      Bsongs: this.state.Bsongs.concat([{ name: "" }]),
-    });
-  };
-
-  addImage = (e) => {
-    const file = e.target.files;
-    if (file.length > 0) {
-      const cover = URL.createObjectURL(file[0]);
-
-      this.setState({
-        coverImg: cover,
-      });
-      this.CardPreviewElement.current.setState({
-        coverImg: cover,
-      });
-    } else {
-      this.setState({
-        coverImg: "",
-      });
-      this.CardPreviewElement.current.setState({
-        coverImg: "",
-      });
-    }
-  };
-
-  changeTitleSize = (e) => {
-    this.setState({
-      titleFontSize: e.target.value + "px",
-    });
-    this.CardPreviewElement.current.setState({
-      titleFontSize: e.target.value + "px",
-    });
-  };
-
-  changeSubTitleSize = (e) => {
-    this.setState({
-      subtitleFontSize: e.target.value + "px",
-    });
-    this.CardPreviewElement.current.setState({
-      subtitleFontSize: e.target.value + "px",
-    });
-  };
-
-  changeSongSize = (e) => {
-    this.setState({
-      songFontSize: e.target.value + "px",
-    });
-    this.CardPreviewElement.current.setState({
-      songFontSize: e.target.value + "px",
-    });
-  };
-
-  // Page
-  render() {
+    // Page
     return (
-      <div className="content-wrapper">
-        <CardPreview State={this.state} ref={this.CardPreviewElement} />
+        <div className="content-wrapper">
+            <CardPreview 
+                fontFamily={fontFamily}
+                bgColor={bgColor}
+                fontColor={fontColor}
+                style={style}
+                coverImg={coverImg}
+                coverImagePosition={coverImagePosition}
+                coverImageSize={coverImageSize}
+                coverImageRepeat={coverImageRepeat}
+                titleFontSize={titleFontSize}
+                titleColor={titleColor}
+                title={title}
+                subtitleFontSize={subtitleFontSize}
+                subtitle={subtitle}
+                songFontSize={songFontSize}
+                sideTitleAlign={sideTitleAlign}
+                sideNameColor={sideNameColor}
+                sideAName={sideAName}
+                sideBName={sideBName}
+                spineStyle={spineStyle}
+                cardNote1={cardNote1}
+                cardNote2={cardNote2}
+                backStyle={backStyle}
+                nrType={nrType}
+                sideASource={sideASource}
+                sideBSource={sideBSource}
+                Asongs={Asongs}
+                Bsongs={Bsongs}
+            />
 
-        {/* Form */}
-        <CardForm
-          state={this.state}
-          handleASongChange={this.handleASongChange}
-          handleBSongChange={this.handleBSongChange}
-          handleRemoveASong={this.handleRemoveASong}
-          handleRemoveBSong={this.handleRemoveBSong}
-          handleAddASong={this.handleAddASong}
-          handleAddBSong={this.handleAddBSong}
-          onChange={this.onChange}
-          changeTitleSize={this.changeTitleSize}
-          changeSubTitleSize={this.changeSubTitleSize}
-          changeSongSize={this.changeSongSize}
-          addImage={this.addImage}
-          ref={this.CardFormElement}
-        />
-      </div>
+            {/* Form */}
+            <CardForm
+                setFontFamily={setFontFamily}
+                setBGColor={setBGColor}
+                setFontColor={setFontColor}
+                setStyle={setStyle}
+                setCoverImagePosition={setCoverImagePosition}
+                setCoverImageSize={setCoverImageSize}
+                setCoverImageRepeat={setCoverImageRepeat}
+                setTitleFontSize={setTitleFontSize}
+                setTitleColor={setTitleColor}
+                setTitle={setTitle}
+                setSubTitleFontSize={setSubTitleFontSize}
+                setSubtitle={setSubtitle}
+                setSongFontSize={setSongFontSize}
+                setSideTitleAlign={setSideTitleAlign}
+                setSideNameColor={setSideNameColor} // Doesnt Work or not used
+                setSideAName={setSideAName}
+                setSideBName={setSideBName}
+                setSpineStyle={setSpineStyle}
+                setCardNote1={setCardNote1}
+                setCardNote2={setCardNote2}
+                setBackStyle={setBackStyle}
+                setNrType={setNrType}
+                setSideASource={setSideASource}
+                setSideBSource={setSideBSource}
+                Asongs={Asongs}
+                Bsongs={Bsongs}
+                handleASongChange={handleASongChange}
+                handleBSongChange={handleBSongChange}
+                handleRemoveASong={handleRemoveASong}
+                handleRemoveBSong={handleRemoveBSong}
+                handleAddASong={handleAddASong}
+                handleAddBSong={handleAddBSong}
+                //onChange={onChange}
+                //changeTitleSize={changeTitleSize}
+                //changeSubTitleSize={changeSubTitleSize}
+                //changeSongSize={changeSongSize}
+                addImage={addImage}
+            />
+        </div>
     );
-  }
 }
 
 export default CardParent;
