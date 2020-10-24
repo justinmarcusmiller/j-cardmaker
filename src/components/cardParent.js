@@ -159,10 +159,6 @@ function CardParent() {
                 handleRemoveBSong={handleRemoveBSong}
                 handleAddASong={handleAddASong}
                 handleAddBSong={handleAddBSong}
-                //onChange={onChange}
-                //changeTitleSize={changeTitleSize}
-                //changeSubTitleSize={changeSubTitleSize}
-                //changeSongSize={changeSongSize}
                 addImage={addImage}
             />
         </div>
